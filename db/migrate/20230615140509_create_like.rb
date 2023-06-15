@@ -3,10 +3,11 @@ class CreateLike < ActiveRecord::Migration[7.0]
     create_table :likes do |t|
       t.integer :author_id
       t.integer :post_id
-      add_index :likes, [:author_id, :post_id]
+      
 
       t.timestamps
     end
+    add_index :likes, [:author_id, :post_id]
     add_foreign_key :likes, :users, column: :author_id
     add_foreign_key :likes, :posts, column: :post_id
   end
