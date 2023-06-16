@@ -4,13 +4,11 @@ class CreateComments < ActiveRecord::Migration[7.0]
       t.integer :author_id
       t.integer :post_id
       t.string :text
-      
-      
-            t.timestamps
+      t.timestamps
           end
           add_index :comments, [:author_id, :post_id]
           add_foreign_key :comments, :users, column: :author_id
           add_foreign_key :comments, :posts, column: :post_id
     end
   end
-end
+
