@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe Post, type: :model do
   let(:user) { User.create(name: 'Test', posts_counter: 0) }
   subject do
@@ -22,7 +21,6 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 'abs'
     expect(subject).to_not be_valid
   end
-
 
   describe 'Functionality' do
     let(:user) do

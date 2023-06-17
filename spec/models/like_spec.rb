@@ -21,7 +21,6 @@ RSpec.describe Like, type: :model do
       )
     end
 
-
     let(:post) do
       user.posts.new(
         title: 'Test Post',
