@@ -34,7 +34,7 @@
           <% if @comments.any?  %>
             <% @comments.each do |comment| %>
               <li>
-                <p><%= User.find_by(id: comment.user_id).name %>: <%= comment.text %></p>
+                <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.text %></p>
               </li>
             <% end %>
           <% else %>
