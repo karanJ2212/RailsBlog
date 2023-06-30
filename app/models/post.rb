@@ -1,21 +1,18 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
-  has_many :comments, foreign_key: :post_id
-  has_many :likes, foreign_key: :post_id
+  has_many :comments
+  has_many :likes
 
-  validates :title, presence: true, length: { maximum: 250 }
-  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 250 }
+  validates :comments_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  after_save :post_count_updater
+
+  def post_count_updater
+    author.update(posts_counter: author.posts.count)
+  end
 
   def recent_comments
     comments.order(created_at: :desc).limit(5)
-  end
-
-  after_save :update_post_counter
-
-  private
-
-  def update_post_counter
-    author.increment!(:posts_counter)
   end
 end
