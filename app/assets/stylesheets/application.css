@@ -231,6 +231,7 @@ h2.title {
 .new_comment .create_comment:hover {
   background-color: #0056b3;
 }
+
 /* add comment form end */
 
 /* button - comment and like start */
@@ -276,18 +277,18 @@ h2.title {
 }
 
 .add_like_btn:hover {
-  background-color: #ff0000;
+  background-color: #f00;
   color: #fff;
   transform: scale(1.2);
 }
 
 .add_like_btn.liked {
-  background-color: #ff0000;
+  background-color: #f00;
   color: #fff;
 }
 
 .add_like_btn.liked:hover {
-  background-color: #ff0000;
+  background-color: #f00;
   color: #fff;
   transform: scale(1);
   animation: shake 0.5s infinite;
@@ -297,15 +298,19 @@ h2.title {
   0% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(-5px, 0);
   }
+
   50% {
     transform: translate(5px, 0);
   }
+
   75% {
     transform: translate(-5px, 0);
   }
+
   100% {
     transform: translate(5px, 0);
   }
@@ -348,8 +353,6 @@ h2.title {
   color: blue;
   text-decoration: none;
 }
-
-
 
 .new_post_title {
   margin-bottom: 20px;
