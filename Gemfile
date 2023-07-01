@@ -74,4 +74,5 @@ group :development, :test do
   gem 'rspec-rails'
 end
 gem 'faker'
+gem 'font-awesome-sass', '~> 6.4.0'
 gem 'rails-controller-testing'

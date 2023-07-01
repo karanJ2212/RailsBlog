@@ -12,6 +12,7 @@
     </div>
     </div>
     <%# End of Home, Users and Back button button  %>
+    <%= flash[:notice]%>
     <%# user info start here %>
     <div class="user-container">
       <div class="user-profile-pic">
@@ -46,6 +47,9 @@
       <% end %>
     </article>
     <%# end of post %>
+    <div class="btn-container see-posts">
+    <%= link_to 'Create New Post', new_user_post_path(@user) %>
+    </div>
     <%# see all post button %>
     <div class="btn-container see-posts">
         <%= link_to "See all posts", user_posts_path(@user) %>

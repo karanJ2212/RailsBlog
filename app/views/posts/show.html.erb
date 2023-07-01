@@ -43,4 +43,18 @@
         </ul>
         <%# End of Comments container  %>
       </div>
+<%# start of add Comments container  %>
+      <div class='add_like_comnt_div'>
+<% if notice %>
+  <div class="notice">
+    <%= notice %>
+  </div>
+<% end %>
+<button ><%= link_to 'Add Comment', new_user_post_comment_path(user_id: @post.author, post_id: @post.id) %></button>
+<%= form_with(model: @like, url: user_post_likes_path(user_id: @post.author, post_id: @post.id) ) do |f| %>
+<%= f.submit "Add Like" ,class: 'add_like_btn'%>
+<% end %>
+</div>
+
+<%# end of add Comments container  %>
     </main>

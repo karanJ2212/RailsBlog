@@ -1,12 +1,12 @@
-class User < ApplicationRecord
-  has_many :comments
-  has_many :posts
-  has_many :likes
+class Like < ApplicationRecord
+  belongs_to :user, foreign_key: 'author_id'
+  belongs_to :post, foreign_key: 'post_id'
 
-  validates :name, presence: true
-  validates :posts_counter, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  after_save :update_likes_counter
 
-  def recent_post
-    posts.order(created_at: :desc).limit(3)
+  private
+
+  def update_likes_counter
+    post.update(likes_counter: post.likes.count)
   end
 end
