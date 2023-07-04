@@ -1,8 +1,10 @@
 require 'rails_helper'
 RSpec.describe Post, type: :system do
-  user = User.create(name: 'karan', posts_counter: 11, photo: 'https://randomuser.me/api/portraits/thumb/men/77.jpg', bio: 'Teacher from india.')
+  user = User.create(name: 'karan', posts_counter: 11, photo: 'https://randomuser.me/api/portraits/thumb/men/77.jpg',
+                     bio: 'Teacher from india.')
   subject do
-    Post.new(author_id: user.id, title: 'Libero assumenda et dolores.', text: 'Est ullam laborum. Placeat neque minima. Mollitia magnam nostrum.', comments_counter: 1, likes_counter: 1)
+    Post.new(author_id: user.id, title: 'Libero assumenda et dolores.',
+             text: 'Est ullam laborum. Placeat neque minima. Mollitia magnam nostrum.', comments_counter: 1, likes_counter: 1)
   end
   before { subject.save }
   describe 'Post index page' do
@@ -63,7 +65,7 @@ RSpec.describe Post, type: :system do
       visit user_post_path(user.id, subject.id)
       page.has_content?(subject.text)
     end
-  it 'I can see the username of each commentor.' do
+    it 'I can see the username of each commentor.' do
       comment = Comment.new(author_id: user.id, post_id: subject.id, text: 'I like it')
       visit user_post_path(user.id, subject.id)
       page.has_content?(comment.author.name)
