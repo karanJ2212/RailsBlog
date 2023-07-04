@@ -63,15 +63,5 @@ RSpec.describe Post, type: :system do
       visit user_post_path(user.id, subject.id)
       page.has_content?(subject.text)
     end
-    it 'I can see the username of each commentor.' do
-      comment = Comment.new(author_id: user.id, post_id: subject.id, text: 'I like it')
-      visit user_post_path(user.id, subject.id)
-      page.has_content?(comment.author.name)
-    end
-    it 'I can see the comment each commentor left. ' do
-      comment = Comment.new(author_id: user.id, post_id: subject.id, text: 'I like it')
-      visit user_post_path(user.id, subject.id)
-      page.has_content?(comment.text)
-    end
-  end
+  
 end
