@@ -76,3 +76,6 @@ end
 gem 'faker'
 gem 'font-awesome-sass', '~> 6.4.0'
 gem 'rails-controller-testing'
+
+gem 'devise', '~> 4.9'
+gem 'letter_opener', group: :development
