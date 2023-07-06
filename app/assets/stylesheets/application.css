@@ -443,6 +443,17 @@ h2.title {
   cursor: pointer;
 }
 
+.actions input[type="submit"] {
+  width: 300px; /* Adjust the width as desired */
+  padding: 14px; /* Adjust the padding as desired */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust the font size as desired */
+}
+
 .field input[type="submit"]:hover {
   background-color: #45a049;
 }
